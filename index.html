@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de Viagens</title>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <div>
+                <p class="p1">Faça a Viagem dos Seus Sonhos!</p>
+                <p class="p2">Use milhas para ter os melhores pacotes de viagens e aproveite suas férias!</p>
+                <!-- Seletor do país de origem -->
+                <div class="form-group">
+                    <label for="pOrigem">País de Origem: </label><br/>
+                    <select class="form-control select" name="pOrigem" id="sel1" onchange="carregaCidadeOrigem(this)"></select>
+                </div>
+                
+                <!-- Seletor da cidade de origem -->
+                <div class="form-group">
+                    <label for="cOrigem">Cidade de Origem: </label><br/>
+                    <select class="form-control select" name="cOrigem" id="sel3"></select>
+                </div>
+                
+                <!-- Seletor do país de destino -->
+                <div class="form-group">
+                    <label for="pDestino">País de Destino: </label><br/>
+                    <select class="form-control select" name="pDestino" id="sel2" onchange="carregaCidadeDestino(this)"></select>
+                </div>
+                
+                <!-- Seletor da cidade de destino -->
+                <div class="form-group">
+                    <label for="cDestino">Cidade de Destino: </label><br/>
+                    <select class="form-control select" name="cDestino" id="sel4"></select>
+                </div>
+            </div>
+            <div class="escolhas">
+                <div>
+                    <button id="subadulto" class="btn" onclick="subtraiAdulto()">-</button>
+                    <input id="adulto" class="buttonQtd" type="number" name="adulto" disabled/>
+                    <button id="somadulto" class="btn" onclick="somaAdulto()">+</button>
+                </div>
+                <div>
+                    <button id="subcriaca" class="btn" onclick="subtraiCrianca()">-</button>
+                    <input id="crianca" class="buttonQtd" type="number" name="crianca" disabled/>
+                    <button id="somcriaca" class="btn" onclick="somaCrianca()">+</button>
+                </div>
+            </div>
+            <!-- <div class="escolhas"> -->
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1">
+                    <label class="form-check-label" for="inlineRadio1">Econômica</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opcao2">
+                    <label class="form-check-label" for="inlineRadio2">Executiva</label>
+                </div>
+            </div>
+            <!-- Escolha as milhas a serem usadas -->
+            <div class="form-group">
+                <label id="labelrange" for="formControlRange">Utilizar 0 milhas</label>
+                <input type="range" class="form-control-range" id="formControlRange" min="0" max="5000" value="0" onchange="calculaRange(this)">
+            </div>
+        </div>
+        <div class="box2">
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+            <p>Resumo da Viagem</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
