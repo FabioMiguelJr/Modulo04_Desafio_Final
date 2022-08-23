@@ -26,7 +26,7 @@
                 <!-- Seletor da cidade de origem -->
                 <div class="form-group">
                     <label for="cOrigem">Cidade de Origem: </label><br/>
-                    <select class="form-control select" name="cOrigem" id="sel3"></select>
+                    <select class="form-control select" name="cOrigem" id="sel3" onchange="localCidadeOrigem(this)"></select>
                 </div>
                 
                 <!-- Seletor do país de destino -->
@@ -38,31 +38,40 @@
                 <!-- Seletor da cidade de destino -->
                 <div class="form-group">
                     <label for="cDestino">Cidade de Destino: </label><br/>
-                    <select class="form-control select" name="cDestino" id="sel4"></select>
+                    <select class="form-control select" name="cDestino" id="sel4" onchange="localCidadeDestino(this)"></select>
                 </div>
             </div>
             <div class="escolhas">
                 <div>
-                    <button id="subadulto" class="btn" onclick="subtraiAdulto()">-</button>
-                    <input id="adulto" class="buttonQtd" type="number" name="adulto" disabled/>
-                    <button id="somadulto" class="btn" onclick="somaAdulto()">+</button>
+                    <div>
+                        <label for="adultos">Adultos: </label>
+                    </div>
+                    <div name="adultos">
+                        <button id="subadulto" class="btn" onclick="calculaQtd(this)">-</button>
+                        <input id="adulto" class="buttonQtd" type="number" name="adulto" disabled/>
+                        <button id="somadulto" class="btn" onclick="calculaQtd(this)">+</button>
+                    </div>
                 </div>
                 <div>
-                    <button id="subcriaca" class="btn" onclick="subtraiCrianca()">-</button>
-                    <input id="crianca" class="buttonQtd" type="number" name="crianca" disabled/>
-                    <button id="somcriaca" class="btn" onclick="somaCrianca()">+</button>
+                    <div>
+                        <label for="criancas">Crianças: </label>
+                    </div>
+                    <div name="criancas">
+                        <button id="subcriaca" class="btn" onclick="calculaQtd(this)">-</button>
+                        <input id="crianca" class="buttonQtd" type="number" name="crianca" disabled/>
+                        <button id="somcriaca" class="btn" onclick="calculaQtd(this)">+</button>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="escolhas"> -->
-            <div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1">
-                    <label class="form-check-label" for="inlineRadio1">Econômica</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opcao2">
-                    <label class="form-check-label" for="inlineRadio2">Executiva</label>
-                </div>
+            <div class="form-check form-check-inline escolhas">
+                <form>
+                    <label class="form-check-label">
+                        <input class="form-check-input" id="inlineRadio1" type="radio" name="optradio" value="econômica" onclick="montaResumo(5)" checked> Econômica 
+                    </label>
+                    <label class="form-check-label">
+                        <input class="form-check-input" id="inlineRadio2" type="radio" name="optradio" Value="executiva" onclick="montaResumo(5)"> Executiva
+                    </label>
+                </form>
             </div>
             <!-- Escolha as milhas a serem usadas -->
             <div class="form-group">
@@ -70,18 +79,17 @@
                 <input type="range" class="form-control-range" id="formControlRange" min="0" max="5000" value="0" onchange="calculaRange(this)">
             </div>
         </div>
-        <div class="box2">
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
-            <p>Resumo da Viagem</p>
+        <div class="box2" id="box2">
+            <p id="origem">Origem: </p>
+            <p id="destino">Destino: </p>
+            <p id="distancia">Distância: </p>
+            <p id="quantidade">0 adulto(s), 0 criança(s)</p>
+            <p id="tipovoo">Tipo de Voo</p>
+            <p id="valorpassadulto">R$ 0,00 por adulto</p>
+            <p id="valorpasscrianca">R$ 0,00 por criança</p>
+            <p id="milhas">Milhas: 0</p>
+            <p id="desconto">Valor abatido por milhagem</p>
+            <p id="valortotal">Total: </p>
         </div>
     </div>
     <script src="script.js"></script>
